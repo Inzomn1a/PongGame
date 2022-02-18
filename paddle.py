@@ -2,9 +2,9 @@ from turtle import Turtle
 
 
 class Paddle:
-    def __init__(self, position):
+    def __init__(self, position, color):
         self.paddle = Turtle("square")
-        self.paddle.color("white")
+        self.paddle.color(color)
         self.paddle.shapesize(1, 5)
         self.paddle.setheading(90)
         self.paddle.penup()
