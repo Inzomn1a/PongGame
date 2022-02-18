@@ -1,9 +1,8 @@
 from turtle import Turtle
 
 
-class Paddle(Turtle):
+class Paddle:
     def __init__(self, position):
-        super().__init__()
         self.paddle = Turtle("square")
         self.paddle.color("white")
         self.paddle.shapesize(1, 5)
