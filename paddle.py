@@ -1,5 +1,4 @@
 from turtle import Turtle
-import time
 
 
 class Paddle(Turtle):
@@ -13,7 +12,13 @@ class Paddle(Turtle):
         self.goto(position)
 
     def move_up(self):
-        self.forward(20)
+        if self.ycor() > 230:  # Cannot move up if paddle is at top
+            pass
+        else:
+            self.forward(20)
 
     def move_down(self):
-        self.backward(20)
+        if self.ycor() < -230:  # Cannot move down if paddle is at bottom
+            pass
+        else:
+            self.backward(20)

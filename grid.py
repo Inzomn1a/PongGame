@@ -1,10 +1,12 @@
 from turtle import Turtle
+GRID_COLOR_LEFT = "purple"
+GRID_COLOR_RIGHT = "green"
 
 
 class Grid:
     def __init__(self):
         grid_pen = Turtle()
-        grid_pen.color("purple")
+        grid_pen.color(GRID_COLOR_LEFT)
         grid_pen.speed(0)
         grid_pen.hideturtle()
         grid_pen.penup()
@@ -24,4 +26,4 @@ class Grid:
             grid_pen.setheading(0)  # right 20
             grid_pen.forward(20)
             if draw_line == 20:
-                grid_pen.color("green")
+                grid_pen.color(GRID_COLOR_RIGHT)
