@@ -32,9 +32,12 @@ time.sleep(1)
 # GameLoop
 screen.tracer(0)  # allows the use of 'screen.update()' function
 game_is_on = True
+ball_speed = 0.05  # the lower, the faster
+paddle_bounce = 0
 while game_is_on:
     screen.update()
     screen.listen()
+    time.sleep(ball_speed)
     # Player Input Controls to move paddles
     screen.onkey(r_paddle.move_up, "Up")
     screen.onkey(r_paddle.move_down, "Down")
@@ -47,9 +50,13 @@ while game_is_on:
         ball.ball_bounce_top_bottom()
 
     # check for ballCollision with paddle
-    paddle_bounce = 0
+
     if ball.distance(r_paddle) < 50 and ball.xcor() > 340 or ball.distance(l_paddle) < 50 and ball.xcor() < -340:
         ball.ball_bounce_paddle()
+        paddle_bounce += 1
+        # increase ball speed every 2 paddleBounces (0.05 - 0.025) in 0.005 increments
+        if paddle_bounce % 2 == 0 and ball_speed > 0.03:
+            ball_speed -= 0.005
 
     # Right paddle miss
     right_miss_counter = 0
@@ -58,6 +65,8 @@ while game_is_on:
         left_player_score += 1
         scoreboard_left.update_scoreboard(left_player_score)
         ball.ball_reset()
+        ball_speed = 0.05
+        paddle_bounce = 0
         screen.update()
         time.sleep(1)
 
@@ -68,6 +77,8 @@ while game_is_on:
         right_player_score += 1
         scoreboard_right.update_scoreboard(right_player_score)
         ball.ball_reset()
+        ball_speed = 0.05
+        paddle_bounce = 0
         screen.update()
         time.sleep(1)
 

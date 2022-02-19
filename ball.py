@@ -5,11 +5,11 @@ import time
 class Ball(Turtle):
     def __init__(self):
         super().__init__()
-        self.shape("square")
+        self.shape("circle")
         self.color("white")
         self.penup()
-        self.x_move = 3  # Initial ballSpeed
-        self.y_move = 3  # Initial ballSpeed
+        self.x_move = 10  # Initial ballSpeed
+        self.y_move = 10  # Initial ballSpeed
 
     def move_ball(self):
         ball_xcor = self.xcor() + self.x_move
