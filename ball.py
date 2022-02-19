@@ -1,4 +1,5 @@
 from turtle import Turtle
+import time
 
 
 class Ball(Turtle):
@@ -7,15 +8,8 @@ class Ball(Turtle):
         self.shape("square")
         self.color("white")
         self.penup()
-        self.x_move = 2  # Initial ballSpeed
-        self.y_move = 2  # Initial ballSpeed
-
-    def increase_ball_speed(self):
-        if self.x_move >= 6.75:  # stop difficult increase once it reaches Speed8
-            pass
-        else:
-            self.x_move *= 1.5
-            self.y_move *= 1.5
+        self.x_move = 3  # Initial ballSpeed
+        self.y_move = 3  # Initial ballSpeed
 
     def move_ball(self):
         ball_xcor = self.xcor() + self.x_move
@@ -32,3 +26,6 @@ class Ball(Turtle):
     def ball_bounce_paddle(self):
         self.x_move *= -1
 
+    def ball_reset(self):
+        self.setposition(0, 0)
+        self.x_move *= -1

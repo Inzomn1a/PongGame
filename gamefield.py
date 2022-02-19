@@ -3,7 +3,7 @@ GRID_COLOR_LEFT = "purple"
 GRID_COLOR_RIGHT = "green"
 
 
-class Grid:
+class GameField:
     def __init__(self):
         grid_pen = Turtle()
         grid_pen.color(GRID_COLOR_LEFT)
