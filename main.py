@@ -50,7 +50,6 @@ while game_is_on:
         ball.ball_bounce_top_bottom()
 
     # check for ballCollision with paddle
-
     if ball.distance(r_paddle) < 50 and ball.xcor() > 340 or ball.distance(l_paddle) < 50 and ball.xcor() < -340:
         ball.ball_bounce_paddle()
         paddle_bounce += 1
@@ -59,25 +58,29 @@ while game_is_on:
             ball_speed -= 0.005
 
     # Right paddle miss
-    right_miss_counter = 0
     if ball.xcor() > 350:
+        ball.color("green")
         time.sleep(1.5)
         left_player_score += 1
         scoreboard_left.update_scoreboard(left_player_score)
         ball.ball_reset()
         ball_speed = 0.05
+        r_paddle.goto(350, 0)
+        l_paddle.goto(-350, 0)
         paddle_bounce = 0
         screen.update()
         time.sleep(1)
 
     # Left paddle miss
-    left_miss_counter = 0
     if ball.xcor() < -350:
+        ball.color("purple")
         time.sleep(1.5)
         right_player_score += 1
         scoreboard_right.update_scoreboard(right_player_score)
         ball.ball_reset()
         ball_speed = 0.05
+        r_paddle.goto(350, 0)
+        l_paddle.goto(-350, 0)
         paddle_bounce = 0
         screen.update()
         time.sleep(1)

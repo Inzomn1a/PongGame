@@ -1,5 +1,4 @@
 from turtle import Turtle
-import time
 
 
 class Ball(Turtle):
@@ -15,10 +14,18 @@ class Ball(Turtle):
         ball_xcor = self.xcor() + self.x_move
         ball_ycor = self.ycor() + self.y_move
         self.setposition(ball_xcor, ball_ycor)
-        if self.xcor() > 0:   # if ball is on LEFT screen
+
+        if 0 < self.xcor() < 350:  # if ball is on RIGHT screen
             self.color("purple")
-        if self.xcor() < 0:  # if ball is on RIGHT screen
+
+        if self.xcor() > 0 and self.xcor() == 350:  # if right player missed
             self.color("green")
+
+        if 0 > self.xcor() > -350:  # if ball is on LEFT screen
+            self.color("green")
+
+        if self.xcor() < 0 and self.xcor() == -350:  # if right player missed
+            self.color("purple")
 
     def ball_bounce_top_bottom(self):
         self.y_move *= -1
@@ -29,3 +36,4 @@ class Ball(Turtle):
     def ball_reset(self):
         self.setposition(0, 0)
         self.x_move *= -1
+        self.color("white")
