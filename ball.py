@@ -2,10 +2,11 @@ from turtle import Turtle
 
 
 class Ball(Turtle):
-    def __init__(self):
+    def __init__(self, init_color):
         super().__init__()
+        self.init_color = init_color
         self.shape("circle")
-        self.color("white")
+        self.color(init_color)
         self.penup()
         self.x_move = 10  # Initial ballSpeed
         self.y_move = 10  # Initial ballSpeed
@@ -36,4 +37,4 @@ class Ball(Turtle):
     def ball_reset(self):
         self.setposition(0, 0)
         self.x_move *= -1
-        self.color("white")
+        self.color(self.init_color)
