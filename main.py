@@ -26,7 +26,8 @@ scoreboard_right.update_scoreboard(right_player_score)
 time.sleep(0.5)
 
 # Spawn Ball
-ball = Ball()
+#ball = Ball("white")
+ball = Ball("blue")
 time.sleep(1)
 
 # GameLoop
